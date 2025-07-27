@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 Lista Inteligente de Tarefas</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Lista Inteligente de Tarefas</h1>
+
+        <!-- Criar nova lista -->
+        <div class="input-group">
+            <input id="list-input" type="text" placeholder="Digite o título da lista">
+            <button onclick="addList()" class="btn green">+ Criar Lista</button>
+        </div>
+
+        <hr>
+
+        <!-- Onde as listas vão aparecer -->
+        <div id="lists-container"></div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
