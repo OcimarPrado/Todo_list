@@ -22,3 +22,34 @@ Aplicativo de gerenciamento de listas de tarefas e itens, com foco na criação 
 ## Como Executar
 
 1. Clone o repositório:
+git clone https://github.com/OcimarPrado/Todo_list.git
+
+2. Entre no diretório do projeto:
+cd Todo_list
+
+3. Instale as dependências:
+pip install -r requirements.txt
+
+4. Execute o backend:
+python app.py
+
+5. Abra o navegador e acesse:
+http://localhost:5000
+
+
+## Estrutura do Projeto
+
+- `app.py`: arquivo principal do backend
+- `templates/`: arquivos HTML para frontend
+- `static/`: arquivos CSS, JavaScript e imagens
+- `README.md`: documentação do projeto
+
+## Contribuição
+
+Contribuições são bem-vindas. Para contribuir, faça um fork do projeto, crie uma branch com sua feature ou correção, e envie um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a MIT License.
+
+
