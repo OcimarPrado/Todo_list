@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List Inteligente</title>
+    <!-- Link para o arquivo de CSS que deixa a página mais bonita -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Minhas Listas</h1> <!-- Título principal da aplicação -->
+
+        <!-- =======================
+             FORMULÁRIO PARA CRIAR NOVA LISTA
+             - Aqui o usuário pode digitar o título de uma lista
+             - Quando envia, a página recarrega e a lista é salva no banco
+        ======================== -->
+        <form method="POST" class="nova-lista-form">
+            <input type="text" name="title" placeholder="Criar título da lista" required>
+            <button type="submit" class="btn-criar">➕ Criar Lista</button>
+        </form>
+
+        <!-- =======================
+             LOOP PELO FLASK (JINJA)
+             - Aqui o Flask envia todas as listas do banco de dados
+             - Para cada lista encontrada, um “bloco” é exibido
+        ======================== -->
+        {% for lista in lists %}
+            <div class="lista">
+                <!-- Cabeçalho da lista: título, data de criação e botão para apagar -->
+                <div class="lista-header">
+                    <h2>{{ lista.title }}</h2>
+                    <span class="data">Criada em: {{ lista.created_at.strftime('%d/%m/%Y %H:%M') }}</span>
+                    <a href="{{ url_for('delete_list', list_id=lista.id) }}" class="btn-apagar">🗑 Apagar Lista</a>
+                </div>
+
+                <!-- =======================
+                     FORMULÁRIO PARA ADICIONAR ITENS NA LISTA
+                     - Cada lista tem o seu próprio formulário
+                     - Assim o usuário pode adicionar itens específicos em cada lista
+                ======================== -->
+                <form action="{{ url_for('add_item', list_id=lista.id) }}" method="POST" class="novo-item-form">
+                    <input type="text" name="item_name" placeholder="Nome do item" required>
+                    <input type="text" name="item_price" placeholder="Valor (opcional)">
+                    <input type="text" name="item_category" placeholder="Categoria">
+                    <button type="submit" class="btn-adicionar">➕ Adicionar</button>
+                </form>
+
+                <!-- =======================
+                     LISTA DE ITENS
+                     - Aqui exibimos todos os itens da lista
+                     - Ordenados em ordem alfabética pelo nome do item
+                ======================== -->
+                <ul class="itens-lista">
+                    {% for item in lista.items|sort(attribute='name') %}
+                        <li class="item">
+                            <!-- Nome do item -->
+                            <span class="item-nome">{{ item.name }}</span> -
+
+                            <!-- Preço do item (ou mensagem caso não tenha preço) -->
+                            <span class="item-preco">
+                                {{ item.price if item.price else "💸 sem valor" }}
+                            </span> -
+
+                            <!-- Categoria do item (ou mensagem caso não tenha categoria) -->
+                            <span class="item-categoria">
+                                {{ item.category if item.category else "📂 sem categoria" }}
+                            </span>
+
+                            <!-- Se o item estiver concluído, mostra o check; senão, botão para concluir -->
+                            {% if item.completed %}
+                                ✅ <span class="concluido">Concluído</span>
+                            {% else %}
+                                <a href="{{ url_for('toggle_complete', item_id=item.id) }}" class="btn-concluir">✔ Concluir</a>
+                            {% endif %}
+
+                            <!-- Botão para apagar o item -->
+                            <a href="{{ url_for('delete_item', item_id=item.id) }}" class="btn-apagar-item">🗑 Apagar</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <!-- =======================
+                     TOTAL DE TODOS OS ITENS DA LISTA
+                     - Somatório calculado no back-end (Flask)
+                     - Formatação para mostrar sempre 2 casas decimais (R$ 0.00)
+                ======================== -->
+                <div class="total">
+                    <strong>Total: </strong> R$ {{ "%.2f"|format(lista.total) }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+</body>
+</html>

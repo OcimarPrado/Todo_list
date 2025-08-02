@@ -1,0 +1,120 @@
+/* ======== ESTILO GERAL DO SITE ======== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Deixa o texto com uma fonte moderna e limpa */
+    background: #f4f7fa; /* Cor de fundo bem clara para não cansar os olhos */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Cor padrão do texto */
+}
+
+/* ======== CONTAINER PRINCIPAL ======== */
+.container {
+    width: 90%; /* Ocupa 90% da largura da tela, mas... */
+    max-width: 900px; /* ...não passa de 900px para manter o site bem organizado em telas grandes */
+    margin: 20px auto; /* Centraliza o container na tela */
+    padding: 20px;
+    background: #fff; /* Fundo branco para destacar o conteúdo */
+    border-radius: 12px; /* Cantos arredondados para um visual moderno */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave para dar profundidade */
+}
+
+/* ======== TÍTULO PRINCIPAL ======== */
+h1 {
+    text-align: center;
+    color: #2a5d84; /* Azul agradável para dar identidade ao título */
+}
+
+/* ======== BLOCOS DE LISTA ======== */
+.lista {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd; /* Linha cinza suave em volta do bloco */
+    border-radius: 10px;
+    background: #fafafa; /* Fundo levemente cinza para destacar cada lista */
+}
+
+/* ======== CABEÇALHO DA LISTA (título, data e botão apagar) ======== */
+.lista-header {
+    display: flex; /* Mantém os itens em linha (título, data, botão) */
+    justify-content: space-between; /* Cria espaço entre os elementos */
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* ======== FORMULÁRIOS ========
+   - Novo título de lista
+   - Novo item
+*/
+.nova-lista-form, .novo-item-form {
+    display: flex;
+    gap: 10px; /* Espaço entre os campos e o botão */
+    margin-top: 10px;
+}
+
+/* ======== CAMPOS DE TEXTO ======== */
+input[type="text"] {
+    flex: 1; /* Ocupa o máximo de espaço disponível */
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* ======== BOTÕES ======== */
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2a5d84; /* Azul principal */
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1f4562; /* Azul mais escuro ao passar o mouse */
+}
+
+/* ======== LISTA DE ITENS ======== */
+.itens-lista {
+    list-style: none; /* Remove as bolinhas da lista padrão */
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+/* ======== CADA ITEM INDIVIDUAL ======== */
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Deixa o nome do item à esquerda e os botões à direita */
+    background: #eef4f8; /* Azul clarinho para diferenciar cada item */
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+/*========= AJUSTA ALINHAMENTO DO CAMPO PREÇO ==========*/
+.item-preco {
+    text-align: center;
+}
+
+
+/* ======== LINKS DE AÇÃO (Apagar / Concluir) ======== */
+.btn-apagar, .btn-apagar-item {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.btn-concluir {
+    color: green;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ======== TOTAL DA LISTA ======== */
+.total {
+    text-align: right; /* Alinha o total no canto direito */
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #2a5d84;
+}
