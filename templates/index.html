@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>📋 Minhas Listas</h1> <!-- Título principal da aplicação -->
+        <h1> Minhas Listas Inteligente! </h1> <!-- Título principal da aplicação -->
 
         <!-- =======================
              FORMULÁRIO PARA CRIAR NOVA LISTA
@@ -31,7 +31,7 @@
                 <div class="lista-header">
                     <h2>{{ lista.title }}</h2>
                     <span class="data">Criada em: {{ lista.created_at.strftime('%d/%m/%Y %H:%M') }}</span>
-                    <a href="{{ url_for('delete_list', list_id=lista.id) }}" class="btn-apagar">🗑 Apagar Lista</a>
+                    <a href="{{ url_for('delete_list', list_id=lista.id) }}" class="btn-apagar"> Apagar Lista</a>
                 </div>
 
                 <!-- =======================
@@ -59,23 +59,23 @@
 
                             <!-- Preço do item (ou mensagem caso não tenha preço) -->
                             <span class="item-preco">
-                                {{ item.price if item.price else "💸 sem valor" }}
+                                {{ item.price if item.price else " sem valor" }}
                             </span> -
 
                             <!-- Categoria do item (ou mensagem caso não tenha categoria) -->
                             <span class="item-categoria">
-                                {{ item.category if item.category else "📂 sem categoria" }}
+                                {{ item.category if item.category else " sem categoria" }}
                             </span>
 
                             <!-- Se o item estiver concluído, mostra o check; senão, botão para concluir -->
                             {% if item.completed %}
-                                ✅ <span class="concluido">Concluído</span>
+                                 <span class="concluido">Concluído</span>
                             {% else %}
                                 <a href="{{ url_for('toggle_complete', item_id=item.id) }}" class="btn-concluir">✔ Concluir</a>
                             {% endif %}
 
                             <!-- Botão para apagar o item -->
-                            <a href="{{ url_for('delete_item', item_id=item.id) }}" class="btn-apagar-item">🗑 Apagar</a>
+                            <a href="{{ url_for('delete_item', item_id=item.id) }}" class="btn-apagar-item"> Apagar</a>
                         </li>
                     {% endfor %}
                 </ul>
