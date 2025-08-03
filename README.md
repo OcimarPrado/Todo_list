@@ -1,18 +1,18 @@
-# ✅ Todo_list
+# Todo_list
 
 Um aplicativo simples de **To-Do List** com backend em **Flask** e banco de dados **SQLite**.
 
 ---
 
-## 🚀 Funcionalidades
-- ✅ Criar listas de tarefas
-- ✅ Adicionar, marcar e remover tarefas
-- ✅ Tarefas organizadas em **ordem alfabética**
-- ✅ Backend pronto para integração com frontend web ou mobile
+##  Funcionalidades
+- Criar listas de tarefas
+- Adicionar, marcar e remover tarefas
+- Tarefas organizadas em **ordem alfabética**
+- Backend pronto para integração com frontend web ou mobile
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## Tecnologias utilizadas
 - **Python 3** (Flask para API)
 - **SQLite** (armazenamento de dados)
 - **HTML, CSS e JavaScript** (frontend básico)
@@ -22,9 +22,9 @@ Um aplicativo simples de **To-Do List** com backend em **Flask** e banco de dado
 
 ---
 
-## 📝 Como executar
+## Como executar
 
-1️⃣ **Clone o repositório:**
+**Clone o repositório:**
 ```bash
 git clone https://github.com/OcimarPrado/Todo_list.git
 
